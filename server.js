@@ -35,6 +35,7 @@ const getAllMessages = (response) => {
 }
 
 const addMessage = (newMessage, response) => {
+  console.log(newMessage)
   response.writeHead(201, {'Content-Type': 'application/json'});
   response.write(JSON.stringify({ 'id': 4, 'user': 'alex trebek', 'message': 'answer in the form of a question' }));
   response.end();
