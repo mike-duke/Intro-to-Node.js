@@ -14,6 +14,7 @@ server.on('request', (request, response) => {
 
     request.on('data', (data) => {
       newMessage = Object.assign(newMessage, JSON.parse(data));
+      console.log(newMessage)
     });
 
     request.on('end', () => {
@@ -35,8 +36,7 @@ const getAllMessages = (response) => {
 }
 
 const addMessage = (newMessage, response) => {
-  console.log(newMessage)
   response.writeHead(201, {'Content-Type': 'application/json'});
-  response.write(JSON.stringify({ 'id': 4, 'user': 'alex trebek', 'message': 'answer in the form of a question' }));
+  response.write(JSON.stringify(newMessage));
   response.end();
 }
